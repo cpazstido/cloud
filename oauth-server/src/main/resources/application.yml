@@ -1,0 +1,11 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: oauth2-authorization-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
