@@ -15,11 +15,13 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 @Configuration
 @EnableAuthorizationServer
 public class PcAuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory().withClient("app1")
-                .authorizedGrantTypes("password", "refresh_token")
+                .authorizedGrantTypes("client_credentials")
                 .authorities("oauth2")
                 .secret("123456")
         ;
@@ -28,6 +30,7 @@ public class PcAuthorizationServerConfig extends AuthorizationServerConfigurerAd
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
+                .authenticationManager(authenticationManager)
                 .tokenStore(new InMemoryTokenStore())
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
         ;
