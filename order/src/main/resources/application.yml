@@ -9,11 +9,16 @@ eureka:
       defaultZone: http://root:root@localhost:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
-security:
-  basic:
-    enabled: false
 #security:
-#  oauth2:
-#    resource:
-#      user-info-uri: http://localhost:9000/user
-#      prefer-token-info: false
+#  basic:
+#    enabled: false
+security:
+  oauth2:
+    client:
+      clientId: app1
+      clientSecret: 123456
+      access-token-uri: http://localhost:8000/oauth-center/oauth/token
+      user-authorization-uri: http://localhost:8000/oauth-center/oauth/authorize
+    resource:
+      user-info-uri: http://localhost:8000/oauth-center/user
+      prefer-token-info: false

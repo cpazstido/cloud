@@ -10,13 +10,13 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 
 import javax.servlet.http.HttpServletResponse;
 
-//@Configuration
-//@EnableResourceServer
+@Configuration
+@EnableResourceServer
 public class ResourceServerConfig  extends ResourceServerConfigurerAdapter {
-    @Autowired
-    private CustomAccessDeniedHandler customAccessDeniedHandler;
-    @Autowired
-    private CustomHttp403ForbiddenEntryPoint customHttp403ForbiddenEntryPoint;
+//    @Autowired
+//    private CustomAccessDeniedHandler customAccessDeniedHandler;
+//    @Autowired
+//    private CustomHttp403ForbiddenEntryPoint customHttp403ForbiddenEntryPoint;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -31,8 +31,8 @@ public class ResourceServerConfig  extends ResourceServerConfigurerAdapter {
 //                .antMatchers("/oauth/*").permitAll()
                 .anyRequest().authenticated()
 //                .anyRequest().permitAll()
-                .and().exceptionHandling().authenticationEntryPoint(customHttp403ForbiddenEntryPoint)
-                .and().exceptionHandling().accessDeniedHandler(customAccessDeniedHandler)
+//                .and().exceptionHandling().authenticationEntryPoint(customHttp403ForbiddenEntryPoint)
+//                .and().exceptionHandling().accessDeniedHandler(customAccessDeniedHandler)
         ;
     }
 }
