@@ -1,0 +1,19 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: order
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+security:
+  basic:
+    enabled: false
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://localhost:9000/user
+#      prefer-token-info: false
