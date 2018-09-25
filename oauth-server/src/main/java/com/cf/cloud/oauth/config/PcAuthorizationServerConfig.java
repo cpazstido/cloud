@@ -24,6 +24,7 @@ public class PcAuthorizationServerConfig extends AuthorizationServerConfigurerAd
                 .authorizedGrantTypes("client_credentials")
                 .authorities("oauth2")
                 .secret("123456")
+                .accessTokenValiditySeconds(30)
         ;
     }
 

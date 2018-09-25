@@ -10,8 +10,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 
 import javax.servlet.http.HttpServletResponse;
 
-@Configuration
-@EnableResourceServer
+//@Configuration
+//@EnableResourceServer
 public class ResourceServerConfig  extends ResourceServerConfigurerAdapter {
     @Autowired
     private CustomAccessDeniedHandler customAccessDeniedHandler;

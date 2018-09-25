@@ -8,6 +8,6 @@ public class IndexController {
 
     @GetMapping("/index")
     public String index(String msg){
-        return msg;
+        return "user controller:"+msg;
     }
 }
