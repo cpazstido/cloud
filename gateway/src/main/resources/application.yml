@@ -27,12 +27,11 @@ zuul:
       path: /order/**
       sensitiveHeaders:
       service-id: ORDER
-proxy:
-  auth:
-    routes:
-      uac-route: oauth2
-      order-route: oauth2
-      oauth-center-route: oauth2
+    cookie-demo:
+      path: /cookie/**
+      sensitiveHeaders:
+      service-id: COOKIE-DEMO
+  add-proxy-headers: true
 security:
   oauth2:
     client:
@@ -43,3 +42,5 @@ security:
     resource:
       user-info-uri: http://localhost:8000/oauth-center/user
       prefer-token-info: false
+logging:
+  level: debug

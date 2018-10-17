@@ -21,7 +21,7 @@ public class PcAuthorizationServerConfig extends AuthorizationServerConfigurerAd
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory().withClient("app1")
-                .authorizedGrantTypes("client_credentials")
+                .authorizedGrantTypes("password", "authorization_code", "refresh_token")
                 .authorities("oauth2")
                 .secret("123456")
                 .accessTokenValiditySeconds(30000)
