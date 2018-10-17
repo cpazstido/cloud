@@ -15,8 +15,10 @@ public class IndexController {
 
         String url = request.getRequestURL().toString();
         System.out.println("URL:"+url);
-        for(Cookie cookie:request.getCookies()){
-            System.out.println("cookie:"+cookie.getName()+" value:"+cookie.getValue());
+        if(request.getCookies()!=null){
+            for(Cookie cookie:request.getCookies()){
+                System.out.println("cookie:"+cookie.getName()+" value:"+cookie.getValue());
+            }
         }
         return url;
     }
